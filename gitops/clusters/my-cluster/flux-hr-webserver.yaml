@@ -9,6 +9,9 @@ spec:
     spec:
       verify:
         provider: cosign
+        matchOIDCIdentity:
+        - issuer: "^https://github.com/login/oauth$"
+          subject: "^koray.oksay@gmail.com$"
       chart: webserver
       reconcileStrategy: ChartVersion
       sourceRef:
