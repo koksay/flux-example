@@ -1,0 +1,17 @@
+resources:
+- ../base/my-deployment
+- namespace.yaml
+
+commonLabels:
+  environment: dev
+
+namespace: dev
+
+configMapGenerator:
+- name: my-configmap
+  literals:
+  - body=<body style="background-color:yellow;"><h1>DEV</h1></body>
+
+images:
+- name: nginx
+  newTag: 1.25.2-alpine3.18-slim
